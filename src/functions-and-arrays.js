@@ -43,9 +43,9 @@ function sumNumbers(number) {
     return 0;
   }
   for (let i = 0; i < number.length; i++) {
-      const element = number[i];
       if (number[i] > 0) {
-          sum += number[i]
+          sum += number[i];
+          console.log(sum)
       }
   }
   return sum
@@ -54,9 +54,40 @@ sumNumbers(numbers);
 
     
 
-
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arr) {
+    let sum = 0;
+    let strNum = 0;
+    let sumTotal = 0;
+    let boleanStr = 0;
+  for (let i = 0; i < arr.length; i++) {
+        
+        if (typeof arr[i] === "number" && arr[i] > 0) {
+          sum += arr[i]
+        }
+        else if (typeof arr[i] === "string") {
+          arr[i] = arr[i].length;
+          strNum += arr[i];
+        }
+        else if (typeof arr[i] === "boolean") {
+          arr[i] = Number(arr[i])
+          boleanStr += arr[i];
+        }
+        else if (typeof arr[i] === "object") {
+          throw new Error("Error message goes here");
+
+        }
+        
+  }
+  sumTotal = strNum+sum+boleanStr;
+  return sumTotal;
+ 
+}
+sum(mixedArr)
+console.log(sum(mixedArr))
+
 
 
 
