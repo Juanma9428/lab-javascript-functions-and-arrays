@@ -122,19 +122,53 @@ const wordsArr = [
 
 function averageWordLength(words) {
   let sum =0;
+  let sumAll =0;
   if (!words ||  words.length === 0) {
     return null;
   }
-  wordsArr.forEach(function(word){
-    sum += word.length;
+  words.forEach(function(elem){
+    sum += elem.length;
+    sumAll = sum / words.length;
+
   })
-  return sum
+  return sumAll
 
 }
 console.log(averageWordLength(wordsArr))
 
 // Bonus - Iteration #4.1
-function avg() {}
+
+const mixed = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 5.7
+
+function avg(arr) {
+    let calc =0;
+    let count =0;
+  if (!arr ||  arr.length === 0) {
+    
+    return null;
+  }
+    arr.forEach(function (elem) {
+      if (typeof elem === "number") {
+        calc += elem;
+        count ++
+
+      }
+      else if(typeof elem === "string"){
+        calc += elem.length;
+        count ++
+      }
+      else if (typeof elem === "boolean") {
+        calc += elem ? 1 : 0;
+        count++
+      }
+      console.log(calc)
+    })
+  
+  return calc / count;
+}
+console.log(avg(mixed))
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
